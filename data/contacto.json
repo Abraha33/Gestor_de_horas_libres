@@ -1,0 +1,45 @@
+{
+    "user": [
+        {
+            "username": "jhons",
+            "password": "hsmj145",
+            "perfil": "Estudiante",
+            "personal_data": {
+                "0": {
+                    "nombre": "Johlver Jose Pardo",
+                    "email": "jjpardo",
+                    "codigo": "7364734",
+                    "telefono": "2516515",
+                    "programa": "Sistemas"
+                }
+            }
+        },
+        {
+            "username": "dsfds",
+            "password": "sdfsd",
+            "perfil": "Estudiante",
+            "personal_data": {
+                "0": {
+                    "nombre": "fdvdf",
+                    "email": "dfvdf",
+                    "codigo": "52561",
+                    "telefono": 54165,
+                    "programa": "fdvdf"
+                }
+            }
+        },
+        {
+            "username": "gonzales",
+            "password": "cubierta",
+            "perfil": "Profesor",
+            "personal_data": {
+                "0": {
+                    "nombre": "asgasd",
+                    "email": "asdflo@gmail.com",
+                    "codigo": 556465,
+                    "facultad": "Ingenieria"
+                }
+            }
+        }
+    ]
+}
