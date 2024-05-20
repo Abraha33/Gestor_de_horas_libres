@@ -1,43 +1,31 @@
 {
     "user": [
         {
-            "username": "jhons",
-            "password": "hsmj145",
+            "username": "gilfoys",
+            "password": "demarcks123",
             "perfil": "Estudiante",
             "personal_data": {
                 "0": {
-                    "nombre": "Johlver Jose Pardo",
-                    "email": "jjpardo",
-                    "codigo": "7364734",
-                    "telefono": "2516515",
-                    "programa": "Sistemas"
+                    "nombre": "Jhon",
+                    "email": "mangansona@gmail.com",
+                    "codigo": "109245335",
+                    "telefono": "325165564",
+                    "facultad": "Ciencias sociales",
+                    "programa": "bshfd"
                 }
             }
         },
         {
-            "username": "dsfds",
-            "password": "sdfsd",
-            "perfil": "Estudiante",
-            "personal_data": {
-                "0": {
-                    "nombre": "fdvdf",
-                    "email": "dfvdf",
-                    "codigo": "52561",
-                    "telefono": 54165,
-                    "programa": "fdvdf"
-                }
-            }
-        },
-        {
-            "username": "gonzales",
-            "password": "cubierta",
+            "username": "marcos",
+            "password": "marcos123",
             "perfil": "Profesor",
             "personal_data": {
                 "0": {
-                    "nombre": "asgasd",
-                    "email": "asdflo@gmail.com",
-                    "codigo": 556465,
-                    "facultad": "Ingenieria"
+                    "nombre": "dfgd",
+                    "codigo": "151651651456",
+                    "telefono": "56215315",
+                    "facultad": "dfgdf",
+                    "email": "alonsoquijano@gmail.com"
                 }
             }
         }
