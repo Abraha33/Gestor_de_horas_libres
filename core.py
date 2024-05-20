@@ -59,10 +59,6 @@ def LoadInfo(fileName):
             read_file.close()
         return dicc
 
-def new_func(read_file):
-    dicc = json.load(read_file)
-    return dicc
-
 def checkFile(filePath):
     try:
         with open('data/'+filePath, 'r') as f:
