@@ -3,7 +3,7 @@ import os
 import locale
 from datetime import datetime
 
-def createEvent():
+def createEvent(username):
     dicc={}
     dicEvent={}
     os.system('cls')
@@ -28,6 +28,7 @@ def createEvent():
             os.system('cls')
             lista_eventos = {
                     "Id": Id,
+                    "Creado":username,
                     "Titulo Evento": name,
                     "Desde": date_time,
                     "Hasta":date_time4,
@@ -35,13 +36,13 @@ def createEvent():
                     "Descripcion":content,
                     "Horas libres": valid_for
             }
+            cr.crearInfo2("Eventos.json",lista_eventos)
             rta = input('Desea crear otro usuario más S o N')
             if rta.upper() == "S":
                 isAddEvent = True
                 cr.crearInfo2("Eventos.json",lista_eventos)
             elif rta.upper() == "N":
                 isAddEvent = False
-        cr.crearInfo2("Eventos.json",lista_eventos)
         #Checklist
         rta = input("Desea salir S o N")
         if rta.upper() == "S":
@@ -68,4 +69,4 @@ def CreateDate():
     return date_time2, date_time4
         
     
-createEvent()
+    

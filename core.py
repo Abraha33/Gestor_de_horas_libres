@@ -15,6 +15,7 @@ def crearInfo(*args):
             file.seek(0)
             # convert back to json.
             json.dump(file_data, file, indent = 4)
+            print('creado con exito¡')
             file.close()
 def crearInfo2(*args):
     if(checkFile(args[0])==False):
@@ -31,6 +32,7 @@ def crearInfo2(*args):
             file.seek(0)
             # convert back to json.
             json.dump(file_data, file, indent = 4)
+            print('creado con exito¡')
             file.close()
                              
 def editarInfo(*args):
@@ -55,7 +57,7 @@ def delInfo(file_name,data,index):
 
 def LoadInfo(fileName):
         with open('data/'+fileName, "r") as read_file:
-            dicc = new_func(read_file)
+            dicc = json.load(read_file)
             read_file.close()
         return dicc
 

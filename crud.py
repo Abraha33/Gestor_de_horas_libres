@@ -2,28 +2,41 @@ import core as cr
 import os
 import time
 
-def HorasCarrera(data):
-    dicc={}
-    cr.LoadInfo('carreras.json')
+def HorasCarrera():
+    data=cr.LoadInfo('carreras.json')
+    carrera=data['carrera']
     indice=1
     print("-------------------------------------------")
-    print(f"{'Item'.ljust(5)}|\t{'nombre'.ljust(5)}|\t{'email'.ljust(5)}|\t{'codigo'.ljust(5)}|\t{'telefono'.ljust(5)}|\t{'carrera'}.ljust(5)".expandtabs())
+    print(f"{'Item'.ljust(10)}|\t{'carrera'.ljust(10)}|\t{'horas_libres_minimas'.ljust(10)}|\t{'semestres'.ljust(10)}".expandtabs())
     print("-------------------------------------------")
-    for item in data ['carrera']:
-        print(f"{str(indice).ljust(5)}|\t{item['nombre'].ljust(30)}|\t{item['email'].ljust(20)})".expandtabs())
+    for item in carrera:
+        print(f"{str(indice).ljust(5)}|\t{item['carrera'].ljust(20)}|\t{str(item['horas_libres_minimas']).ljust(20)})|\t{str(item['semestre']).ljust(20)})".expandtabs())
         indice=indice+1
+    items=int(input("escriba el numero a guardar "))
+    selected=carrera[items-1]
+    print(f'Usted eligió {selected}')
     v=input("presione enter para continuar...")
-    items=int(input("escriba el numero de contacto a eliminar "))
+    carrera=selected['carrera']
+    horas_libres_minimas=selected['horas_libres_minimas']
+    semestre=selected['semestre']
     
+    return carrera,horas_libres_minimas,semestre
+
+def HLR():
+   #contador
+   pass  
+
+
         
         
 
 def AddDataDicc():
     dicc = {}
-    dicData = {}
+    dicPersonalData = {}
+    dicProgress={}
     os.system('cls')
     print("****************************************")
-    print("*¡                Menu               !*")
+    print("*¡        Creando Usuario             !*")
     print("****************************************")
     isDataItem = True
     while isDataItem == True:
@@ -38,63 +51,89 @@ def AddDataDicc():
             ocupacion=v
         os.system("pause")
         os.system('cls')
-        isAddData = True
-        while isAddData == True:
+        isAddPersonalData = True
+        while isAddPersonalData == True:
             #Usuario Estudiante
             if ocupacion=="Estudiante":
-                valor = len(dicData)
+                valor=0
+                valor2=1
                 nombre = input("Nombre del usuario:    ")
                 email = input("Email del usuario:      ")
                 codigo = int(input("Código:                "))
                 telefono = int(input("Telefono:             "))
-                carrera=input("Carrera:                ")
-                
-                dicData.update({valor:{"nombre":nombre,"email":email,"codigo":codigo,"telefono":telefono,"carrera":carrera}})
-                rta = input('Desea crear otro usuario más S o N')
-                if rta.upper() == "S":
-                    isAddData = True
-                elif rta.upper() == "N":
-                    isAddData = False
-            #Usuario Profesor
+                carrera,horas_libres_minimas,semestre=HorasCarrera()
+                HLR= 0 #Horas Libres Registradas
+                PromedioS= round(horas_libres_minimas/semestre,None)
+                PromedioM=round(PromedioS/6,None)
+                PromedioA=round(PromedioS*2,None)
+                Faltantes=semestre-HLR
+                dicPersonalData.update({valor:{"nombre":nombre,"email":email,"codigo":codigo,"telefono":telefono,"carrera":carrera,"horas libres minimas":horas_libres_minimas}})
+                dicProgress.update({valor2:{"Horas libres registradas":HLR,"Faltantes":Faltantes,"Promedio Mensual":PromedioM,"Promedio Semestral":PromedioS,"Promedio Anual":PromedioA,}})
+                dicc["personal_data"] = dicPersonalData
+                contacto = {
+                        "username": username,
+                        "password": password,
+                        "perfil":ocupacion,
+                        "personal_data": dicPersonalData,
+                        "rendimiento":dicProgress
+                }
+                #Usuario Profesor
             elif ocupacion=="Profesor":
-                valor=len(dicData)
+                valor=0
                 nombre=input("Nombre de usuario           ")
                 codigo=int(input("código:                 "))  
-                carrera=input("Facultad:                   ")    
+                carrera=HorasCarrera()   
                 email=input("Correo:                   ")
-            #///función para eventos   
-                #Eventos: 
-                dicData.update({valor:{"nombre":nombre,"email":email,"codigo":codigo,"carrera":carrera}})
-                rta = input('Desea crear otro usuario más S o N')
-                if rta.upper() == "S":
-                    isAddData = True
-                elif rta.upper() == "N":
-                    isAddData = False
+            
+                dicPersonalData.update({valor:{"nombre":nombre,"email":email,"codigo":codigo,"carrera":carrera}})
+                dicc["personal_data"] = dicPersonalData
+                contacto = {
+                        "username": username,
+                        "password": password,
+                        "perfil":ocupacion,
+                        "personal_data": dicPersonalData,
+                        "rendimiento":dicProgress
+                }
             os.system("pause")
-        os.system('cls')
-        dicc["personal_data"] = dicData
-        contacto = {
-                "username": username,
-                "password": password,
-                "perfil":ocupacion,
-                "personal_data": dicData
-        }
-        cr.crearInfo("contacto.json", contacto)
-        #Checklist
+            os.system('cls')
+            cr.crearInfo("contacto.json", contacto)
+            rta = input('Desea crear otro usuario más S o N')
+            if rta.upper() == "S":
+                isAddPersonalData = True
+            elif rta.upper() == "N":
+                isAddPersonalData = False
         rta = input("Desea salir S o N")
         if rta.upper() == "S":
             isDataItem = False
         elif rta.upper() == "N":
-            isDataItem = True                
-                
+            isDataItem = True    
+                       
 def RecargarData(diccionario):
     cr.RefrescarData("contacto.json",diccionario)
     
-def VerData(data):
+def VerData(data,username):
     os.system('cls')
-    for item in data['data']:
-        print(f"{item['nombre']}|\t{item['email']}|\t{item['codigo']}".expandtabs())
-    v=input("Presione enter para continuar....")
+    for user in data['user']:
+        if user['username']==username:    
+            if user['perfil'] == "Estudiante":
+                personal_data = user['personal_data']['0']
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"                                             {user['perfil']}                                       ") 
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"{'Item'.ljust(5)}|\t{'Nombre'.ljust(15)}|\t{'Email'.ljust(25)}|\t{'Código'.ljust(10)}|\t{'Teléfono'.ljust(15)}|\t{'Carrera'.ljust(20)}".expandtabs())
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{personal_data['email'].ljust(25)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['carrera'].ljust(15)}|\t{personal_data['horas libres minimas']}".expandtabs())        
+
+            elif user['perfil'] == "Profesor":
+                personal_data = user['personal_data']['0']
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"                                             {user['perfil']}                                       ")  
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"{'Item'.ljust(5)}|\t{'Nombre'.ljust(15)}|\t{'Código'.ljust(10)}|\t{'Teléfono'.ljust(15)}|\t{'Facultad'.ljust(20)}|\t{'Email'.ljust(25)}".expandtabs())
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['facultad'].ljust(20)}|\t{personal_data['email'].ljust(25)}".expandtabs())                                       
+                v=input("Presione enter para continuar....")
+
 
 def BuscarData(data,username):
     os.system('cls')
@@ -107,7 +146,7 @@ def BuscarData(data,username):
                 print("-----------------------------------------------------------------------------------------------------")
                 print(f"{'Item'.ljust(5)}|\t{'Nombre'.ljust(15)}|\t{'Email'.ljust(25)}|\t{'Código'.ljust(10)}|\t{'Teléfono'.ljust(15)}|\t{'Carrera'.ljust(20)}".expandtabs())
                 print("-----------------------------------------------------------------------------------------------------")
-                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{personal_data['email'].ljust(25)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['carrera'].ljust(15)}".expandtabs())        
+                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{personal_data['email'].ljust(25)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['carrera'].ljust(15)}|\t{personal_data['horas libres minimas']}".expandtabs())        
 
             elif user['perfil'] == "Profesor":
                 personal_data = user['personal_data']['0']
@@ -116,8 +155,7 @@ def BuscarData(data,username):
                 print("-----------------------------------------------------------------------------------------------------")
                 print(f"{'Item'.ljust(5)}|\t{'Nombre'.ljust(15)}|\t{'Código'.ljust(10)}|\t{'Teléfono'.ljust(15)}|\t{'Facultad'.ljust(20)}|\t{'Email'.ljust(25)}".expandtabs())
                 print("-----------------------------------------------------------------------------------------------------")
-                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['facultad'].ljust(20)}|\t{personal_data['email'].ljust(25)}".expandtabs())
-                                       
+                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['facultad'].ljust(20)}|\t{personal_data['email'].ljust(25)}".expandtabs())                                   
     items=1
     selected_user=data['user'][items-1]
     personal_data=selected_user['personal_data']['0']

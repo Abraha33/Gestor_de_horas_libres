@@ -28,53 +28,54 @@ if __name__ == "__main__":
             #Login para entrar al Inicio
         isLogin=True
         while isLogin==True:
-                    print("****************************************") 
-                    print("*                Login                 *")
-                    print("****************************************")
-                    data = core.LoadInfo("contacto.json")  # Load the data from the file
-                    attempts = 0
-                    isAttemp=True
-                    while isAttemp==True:
-                        username = input('Usuario: ')
-                        password = input('Contraseña: ')
-                        attempts += 1
-                        user_found = False
-                        for user in data["user"]:
-                            if user["username"] == username and user["password"] == password:
-                                print(f'¡Bienvenido {username}!')
-                                isAttemp=False
-                                user_found=True
-                                break
-                        
-                        if user_found:
-                            isLogin=False
-                            
-                            break
-                        else:
-                            if attempts < 3:
-                                print(f"Usuario o contraseña incorrectos\nTienes {3 - attempts} oportunidades restantes")
-                            elif attempts==3:
-                                print("Has alcanzado el máximo de intentos")
-                                rta = input("¿Te quieres registrar (S/N): ").upper()
-                                if rta == "S":
-                                    # Lógica para agregar un nuevo usuario
-                                    crud.AddDataDicc()
-                                    print("Registro exitoso. Puedes iniciar sesión ahora.")
-                                    isAttemp = False
-                                    isLogin = True
-                                    attempts = 0
-                                else:   
-                                    isLogin = False
-                                    continue_prompt = input("¿Quieres continuar? (S/N): ").upper()
-                                    if continue_prompt == "S":
-                                        attempts = 0
-                                        isLogin = True
-                                    else:
-                                        print("¡Hasta luego!")
-                                        isInitActivate = False
-                                        isMenuActivate = False
-                                        break   
-        
+            
+            print("****************************************") 
+            print("*                Login                 *")
+            print("****************************************")
+            data = core.LoadInfo("contacto.json")  # Load the data from the file
+            attempts = 0
+            isAttemp=True
+            while isAttemp==True:
+                username = input('Usuario: ')
+                password = input('Contraseña: ')
+                attempts += 1
+                user_found = False
+                for user in data["user"]:
+                    if user["username"] == username and user["password"] == password:
+                        print(f'¡Bienvenido {username}!')
+                        isAttemp=False
+                        user_found=True
+                        break
+                
+                if user_found:
+                    isLogin=False
+                    
+                    break
+                else:
+                    if attempts < 3:
+                        print(f"Usuario o contraseña incorrectos\nTienes {3 - attempts} oportunidades restantes")
+                    elif attempts==3:
+                        print("Has alcanzado el máximo de intentos")
+                        rta = input("¿Te quieres registrar (S/N): ").upper()
+                        if rta == "S":
+                            # Lógica para agregar un nuevo usuario
+                            crud.AddDataDicc()
+                            print("Registro exitoso. Puedes iniciar sesión ahora.")
+                            isAttemp = False
+                            isLogin = True
+                            attempts = 0
+                        else:   
+                            isLogin = False
+                            continue_prompt = input("¿Quieres continuar? (S/N): ").upper()
+                            if continue_prompt == "S":
+                                attempts = 0
+                                isLogin = True
+                            else:
+                                print("¡Hasta luego!")
+                                isInitActivate = False
+                                isMenuActivate = False
+                                break   
+
         #Inicio de usuario 
         isInitActivate=True
         while isInitActivate==True:
@@ -99,12 +100,13 @@ if __name__ == "__main__":
                 print("***************************************")
                 print("*                Perfil               *")
                 print("***************************************")
-                print("1.Actualizar datos\n2.Eliminar")
+                print("1.Actualizar datos\n2.Ver Perfil\n3.Eliminar")
                 option=int(input("Tu: "))
                 if option==1:
                     crud.BuscarData(dircontacto,username) #Actualizar datos
                 elif option==2:
-                    
+                    crud.VerData(dircontacto,username) #Ver perfil
+                elif option==3:
                     crud.EliminarUsuario(dircontacto,username) #Eliminar usuario
                     dircontacto=core.LoadInfo('contacto.json')
                     
@@ -134,7 +136,7 @@ if __name__ == "__main__":
                     print("1.Crear Evento\n2.Ver\n3.Actualizar\n4.Eliminar")
                     option=int(input("Tu: "))
                     if option==1:
-                        pass
+                        ce.createEvent(username)
                     elif option==2:
                         pass
                     else:
