@@ -67,7 +67,7 @@ def register_events(data,username):
     print("-----------------------------------------------------------------------------------------------------")
     for item in eventos:
         if item['Disponible']==True:
-            print(f"{str(indice).ljust(5)}|\t{str(eventos['Id']).ljust(10)}|\t{eventos['Titulo Evento'].ljust(25)}|\t{eventos['Desde'].ljust(20)}|\t{eventos['Hasta'].ljust(20)}|\t{eventos['lugar'].ljust(15)}|\t{eventos['Descripcion'].ljust(25)}|\t{eventos['Horas libres'].ljust(10)}".expandtabs())
+            print(f"{str(indice).ljust(5)}|\t{str(item['Id']).ljust(10)}|\t{item['Titulo'].ljust(25)}|\t{item['Desde'].ljust(20)}|\t{item['Hasta'].ljust(20)}|\t{item['lugar'].ljust(15)}|\t{item['Descripcion'].ljust(25)}|\t{str(item['Horas_libres']).ljust(10)}".expandtabs())
             indice=indice+1
     items=int(input("escriba el numero a guardar "))
     selected=eventos[items-1]
@@ -75,8 +75,12 @@ def register_events(data,username):
     v=input("presione enter para continuar...")
     user_data=cr.LoadInfo('contacto.json')
     for user in user_data['user']:
-        if user['username']==username:
-            user['Rendimiento']["1"].update(selected)
+        if user['username'] == username:
+            eventos_inscritos = user.get('eventos inscritos', {})
+            next_event_id = str(len(eventos_inscritos) + 1)
+            eventos_inscritos[next_event_id] = selected
+            user['eventos inscritos'] = eventos_inscritos
+            
     cr.crearInfo('contacto.json',user_data)
     """while v==True:
         rta=input('Dese otro un evento S o N')

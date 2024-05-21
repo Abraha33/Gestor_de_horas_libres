@@ -1,14 +1,6 @@
 {
     "Evento": [
-        {
-            "Id": 155353615,
-            "Titulo": "marcos de",
-            "Fecha": "domingo, 25 mayo 2025 15:30-16:35",
-            "lugar": "casona publica",
-            "Descripcion": "marcos de askadls",
-            "Horas libres": 4,
-            "Disponible": true
-        },
+    
         {
             "Id": 8541654165,
             "Titulo": "compra d emuebles",
@@ -16,7 +8,7 @@
             "Hasta": "lunes, 19 mayo 2025 20:40",
             "lugar": "plza de mercado",
             "Descripcion": "buen camino",
-            "Horas libres": 4,
+            "Horas_libres": 4,
             "Disponible": true
         },
         {
@@ -27,7 +19,7 @@
             "Hasta": "viernes, 14 junio 2024 23:30",
             "lugar": "biblioteca UNAB",
             "Descripcion": "hasbdhsabhdasdj asdajs asjdnajs asjdnasj adjnas dfew wefs cscs cbsj",
-            "Horas libres": 4,
+            "Horas_libres": 4,
             "Disponible": true
         }
     ]

@@ -46,6 +46,19 @@
                     "Promedio Semestral": 11,
                     "Promedio Anual": 22
                 }
+            },
+            "eventos inscritos": {
+                "2": {
+                    "Id": 456565,
+                    "Creado": "gilberto",
+                    "Titulo": "unhhh",
+                    "Desde": "viernes, 14 junio 2024 22:30",
+                    "Hasta": "viernes, 14 junio 2024 23:30",
+                    "lugar": "biblioteca UNAB",
+                    "Descripcion": "hasbdhsabhdasdj asdajs asjdnajs asjdnasj adjnas dfew wefs cscs cbsj",
+                    "Horas_libres": 4,
+                    "Disponible": true
+                }
             }
         },
         {
@@ -60,6 +73,96 @@
                     "carrera": "Ingenieria Electrica"
                 }
             }
+        },
+        {
+            "user": [
+                {
+                    "username": "jesus",
+                    "password": "jesus123",
+                    "perfil": "Estudiante",
+                    "personal_data": {
+                        "0": {
+                            "nombre": "jeus",
+                            "email": "jesus@gmail.com",
+                            "codigo": 15615,
+                            "telefono": 3148729188,
+                            "carrera": "Ingenieria en Computacion",
+                            "horas libres minimas": 90
+                        }
+                    },
+                    "rendimiento": {
+                        "1": {
+                            "Horas libres registradas": 0,
+                            "Faltantes": 8,
+                            "Promedio Mensual": 2,
+                            "Promedio Semestral": 11,
+                            "Promedio Anual": 22
+                        }
+                    },
+                    "eventos inscritos": {
+                        "1": {
+                            "Id": 8541654165,
+                            "Titulo": "compra d emuebles",
+                            "Desde": "lunes, 19 mayo 2025 19:35",
+                            "Hasta": "lunes, 19 mayo 2025 20:40",
+                            "lugar": "plza de mercado",
+                            "Descripcion": "buen camino",
+                            "Horas_libres": 4,
+                            "Disponible": true
+                        }
+                    }
+                },
+                {
+                    "username": "jesusq2",
+                    "password": "jesus123",
+                    "perfil": "Estudiante",
+                    "personal_data": {
+                        "0": {
+                            "nombre": "marcos",
+                            "email": "marcos@gmail.com",
+                            "codigo": 51515,
+                            "telefono": 319256546,
+                            "carrera": "Ingenieria Mecanica",
+                            "horas libres minimas": 90
+                        }
+                    },
+                    "rendimiento": {
+                        "1": {
+                            "Horas libres registradas": 0,
+                            "Faltantes": 8,
+                            "Promedio Mensual": 2,
+                            "Promedio Semestral": 11,
+                            "Promedio Anual": 22
+                        }
+                    },
+                    "eventos inscritos": {
+                        "2": {
+                            "Id": 456565,
+                            "Creado": "gilberto",
+                            "Titulo": "unhhh",
+                            "Desde": "viernes, 14 junio 2024 22:30",
+                            "Hasta": "viernes, 14 junio 2024 23:30",
+                            "lugar": "biblioteca UNAB",
+                            "Descripcion": "hasbdhsabhdasdj asdajs asjdnajs asjdnasj adjnas dfew wefs cscs cbsj",
+                            "Horas_libres": 4,
+                            "Disponible": true
+                        }
+                    }
+                },
+                {
+                    "username": "judlup",
+                    "password": "judlup123",
+                    "perfil": "Profesor",
+                    "personal_data": {
+                        "0": {
+                            "nombre": "judbootmp",
+                            "email": "sdfhg@gmail.com",
+                            "codigo": 15313,
+                            "carrera": "Ingenieria Electrica"
+                        }
+                    }
+                }
+            ]
         }
     ]
 }
