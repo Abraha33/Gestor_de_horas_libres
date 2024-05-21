@@ -1,31 +1,63 @@
 {
     "user": [
         {
-            "username": "gilfoys",
-            "password": "demarcks123",
+            "username": "jesus",
+            "password": "jesus123",
             "perfil": "Estudiante",
             "personal_data": {
                 "0": {
-                    "nombre": "Jhon",
-                    "email": "mangansona@gmail.com",
-                    "codigo": "109245335",
-                    "telefono": "325165564",
-                    "facultad": "Ciencias sociales",
-                    "programa": "bshfd"
+                    "nombre": "jeus",
+                    "email": "jesus@gmail.com",
+                    "codigo": 15615,
+                    "telefono": 3148729188,
+                    "carrera": "Ingenieria en Computacion",
+                    "horas libres minimas": 90
+                }
+            },
+            "rendimiento": {
+                "1": {
+                    "Horas libres registradas": 0,
+                    "Faltantes": 8,
+                    "Promedio Mensual": 2,
+                    "Promedio Semestral": 11,
+                    "Promedio Anual": 22
                 }
             }
         },
         {
-            "username": "marcos",
-            "password": "marcos123",
+            "username": "jesusq2",
+            "password": "jesus123",
+            "perfil": "Estudiante",
+            "personal_data": {
+                "0": {
+                    "nombre": "marcos",
+                    "email": "marcos@gmail.com",
+                    "codigo": 51515,
+                    "telefono": 319256546,
+                    "carrera": "Ingenieria Mecanica",
+                    "horas libres minimas": 90
+                }
+            },
+            "rendimiento": {
+                "1": {
+                    "Horas libres registradas": 0,
+                    "Faltantes": 8,
+                    "Promedio Mensual": 2,
+                    "Promedio Semestral": 11,
+                    "Promedio Anual": 22
+                }
+            }
+        },
+        {
+            "username": "judlup",
+            "password": "judlup123",
             "perfil": "Profesor",
             "personal_data": {
                 "0": {
-                    "nombre": "dfgd",
-                    "codigo": "151651651456",
-                    "telefono": "56215315",
-                    "facultad": "dfgdf",
-                    "email": "alonsoquijano@gmail.com"
+                    "nombre": "judbootmp",
+                    "email": "sdfhg@gmail.com",
+                    "codigo": 15313,
+                    "carrera": "Ingenieria Electrica"
                 }
             }
         }

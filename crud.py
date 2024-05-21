@@ -10,7 +10,7 @@ def HorasCarrera():
     print(f"{'Item'.ljust(10)}|\t{'carrera'.ljust(10)}|\t{'horas_libres_minimas'.ljust(10)}|\t{'semestres'.ljust(10)}".expandtabs())
     print("-------------------------------------------")
     for item in carrera:
-        print(f"{str(indice).ljust(5)}|\t{item['carrera'].ljust(20)}|\t{str(item['horas_libres_minimas']).ljust(20)})|\t{str(item['semestre']).ljust(20)})".expandtabs())
+        print(f"{str(indice).ljust(5)}|\t{item['carrera'].ljust(30)}|\t{str(item['horas_libres_minimas']).ljust(15)})|\t{str(item['semestre']).ljust(10)})".expandtabs())
         indice=indice+1
     items=int(input("escriba el numero a guardar "))
     selected=carrera[items-1]
@@ -34,6 +34,7 @@ def AddDataDicc():
     dicc = {}
     dicPersonalData = {}
     dicProgress={}
+    diccEventt={}
     os.system('cls')
     print("****************************************")
     print("*¡        Creando Usuario             !*")
@@ -57,6 +58,7 @@ def AddDataDicc():
             if ocupacion=="Estudiante":
                 valor=0
                 valor2=1
+                valor3=1
                 nombre = input("Nombre del usuario:    ")
                 email = input("Email del usuario:      ")
                 codigo = int(input("Código:                "))
@@ -70,19 +72,21 @@ def AddDataDicc():
                 dicPersonalData.update({valor:{"nombre":nombre,"email":email,"codigo":codigo,"telefono":telefono,"carrera":carrera,"horas libres minimas":horas_libres_minimas}})
                 dicProgress.update({valor2:{"Horas libres registradas":HLR,"Faltantes":Faltantes,"Promedio Mensual":PromedioM,"Promedio Semestral":PromedioS,"Promedio Anual":PromedioA,}})
                 dicc["personal_data"] = dicPersonalData
+                
                 contacto = {
                         "username": username,
                         "password": password,
                         "perfil":ocupacion,
                         "personal_data": dicPersonalData,
-                        "rendimiento":dicProgress
+                        "rendimiento":dicProgress,
+                        "eventos inscritos":eventos
                 }
                 #Usuario Profesor
             elif ocupacion=="Profesor":
                 valor=0
                 nombre=input("Nombre de usuario           ")
                 codigo=int(input("código:                 "))  
-                carrera=HorasCarrera()   
+                carrera,horas_libres_minimas,semestre=HorasCarrera()   
                 email=input("Correo:                   ")
             
                 dicPersonalData.update({valor:{"nombre":nombre,"email":email,"codigo":codigo,"carrera":carrera}})
@@ -92,22 +96,23 @@ def AddDataDicc():
                         "password": password,
                         "perfil":ocupacion,
                         "personal_data": dicPersonalData,
-                        "rendimiento":dicProgress
+                        
                 }
+        
+            cr.crearInfo("contacto.json", contacto)
             os.system("pause")
             os.system('cls')
-            cr.crearInfo("contacto.json", contacto)
-            rta = input('Desea crear otro usuario más S o N')
-            if rta.upper() == "S":
-                isAddPersonalData = True
-            elif rta.upper() == "N":
-                isAddPersonalData = False
+        rta = input('Desea crear otro usuario más S o N')
+        if rta.upper() == "S":
+            isAddPersonalData = True
+        elif rta.upper() == "N":
+            isAddPersonalData = False
         rta = input("Desea salir S o N")
         if rta.upper() == "S":
             isDataItem = False
         elif rta.upper() == "N":
             isDataItem = True    
-                       
+                    
 def RecargarData(diccionario):
     cr.RefrescarData("contacto.json",diccionario)
     
@@ -206,55 +211,8 @@ def EliminarUsuario(data,username):
     
     
             cr.delInfo('contacto.json',data,i) #Elimina usuario en posición determinada
-    v=input("presione enter para continuar...")                   
-    
-"""def register_events(file_path):
-    print('Estos son los eventos disponibles: ')
-    with open(file_path, 'r',encoding='utf8') as file:
-        lines = file.readlines()
-    events = []
-    for line in lines:
-        event_data = line.strip().split(',')
-        if len(event_data) >= 4:
-            event = {
-                'name': event_data[0],
-                'date': event_data[1],
-                'time': event_data[2],
-                'type': event_data[3]
-            }
-            events.append(event)
-            print(f"{len(events)}.{event['name']}-{event['date']}-{event['type']}")
-        else:
-            pass
-    return events
-events=register_events('Events.txt')
-v=True
-while v==True:
-    rta=input('Dese elegir un evento S o N')
-    if rta.upper()=='S':
-        v=True
-    elif rta.upper()=='N':
-        v=False
-    else:
-        print('Por favor, responde con S o N.')
-        continue
-    if not events:
-        print('No hay eventos disponibles')
-    else:
-        op=int(input('Ingrese una opción: '))
-        #Validando que entrada no este fuera de rango
-        if 0<op<len(events):
-            select_event=events[op-1]
-            print(f"Has seleccionado: {select_event['name']}-{select_event['date']}-{select_event['type']}")
-        else:
-            print('Por favor, ingresa una opción válida. ')"""
-    
+    v=input("presione enter para continuar...")
+                       
+
         
-    
-
-
-
-
-
-    
-    
+        

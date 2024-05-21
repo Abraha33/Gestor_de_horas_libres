@@ -1,77 +1,34 @@
 {
     "Evento": [
         {
-            "Id": 1,
-            "Titulo": "Evento 1",
-            "Lugar": "casa",
-            "Descripcion": "sdfs amksdmksa",
-            "Horas libres": 4
-        },
-        {
-            "Id": 515153153,
-            "Titulo Evento": "ahbhasd aads fasd",
-            "lugar": "a da",
-            "Descripcion": "asf as a ddsasdsd aads asgdsg",
-            "Horas libres": 4
-        },
-        {
-            "Id": 1564654,
-            "Titulo Evento": "sdafsd asd",
-            "lugar": " adfasd",
-            "Descripcion": "a dsagdsd",
-            "Horas libres": 4
-        },
-        {
-            "Id": 5156415646,
-            "Titulo Evento": "dsgfdjnjdfg",
-            "lugar": "dfdfdf",
-            "Descripcion": "dsndjfg",
-            "Horas libres": 18
-        },
-        {
-            "Id": 51515,
-            "Titulo Evento": "fdgfd",
-            "lugar": "dsfdf",
-            "Descripcion": "sdfgsdf",
-            "Horas libres": 45
-        },
-        {
-            "Id": 555,
-            "Titulo Evento": "jsdhbds",
-            "lugar": "casa",
-            "Descripcion": "loremp ipsu ksd",
-            "Horas libres": 45
-        },
-        {
-            "Id": 486654,
-            "Titulo Evento": "dsfdshbd",
-            "lugar": "5156d",
-            "Descripcion": "marcos aurelio en casa",
-            "Horas libres": 16
-        },
-        {
-            "Id": 1515,
-            "Titulo Evento": "marcos",
-            "lugar": "Casa Unab",
-            "Descripcion": "parartoda la familia+",
-            "Horas libres": 4
-        },
-        {
             "Id": 155353615,
-            "Titulo Evento": "marcos de",
+            "Titulo": "marcos de",
             "Fecha": "domingo, 25 mayo 2025 15:30-16:35",
             "lugar": "casona publica",
             "Descripcion": "marcos de askadls",
-            "Horas libres": 4
+            "Horas libres": 4,
+            "Disponible": true
         },
         {
             "Id": 8541654165,
-            "Titulo Evento": "compra d emuebles",
+            "Titulo": "compra d emuebles",
             "Desde": "lunes, 19 mayo 2025 19:35",
             "Hasta": "lunes, 19 mayo 2025 20:40",
             "lugar": "plza de mercado",
             "Descripcion": "buen camino",
-            "Horas libres": 4
+            "Horas libres": 4,
+            "Disponible": true
+        },
+        {
+            "Id": 456565,
+            "Creado": "gilberto",
+            "Titulo": "unhhh",
+            "Desde": "viernes, 14 junio 2024 22:30",
+            "Hasta": "viernes, 14 junio 2024 23:30",
+            "lugar": "biblioteca UNAB",
+            "Descripcion": "hasbdhsabhdasdj asdajs asjdnajs asjdnasj adjnas dfew wefs cscs cbsj",
+            "Horas libres": 4,
+            "Disponible": true
         }
     ]
 }

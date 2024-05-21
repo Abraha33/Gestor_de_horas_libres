@@ -126,7 +126,7 @@ if __name__ == "__main__":
                     print("1.Eventos disponibles\n2.Inscritos")
                     option=int(input("Tu: "))
                     if option==1:
-                        pass
+                        ce.register_events(dircontacto,username)
                     elif option==2:
                         print('h')
                     else:
