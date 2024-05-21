@@ -1,0 +1,54 @@
+{
+    "carrera": [
+        {
+            "carrera": "Ingenieria en Sistemas",
+            "horas_libres_minimas": 90,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria en Computacion",
+            "horas_libres_minimas": 90,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria Electronica",
+            "horas_libres_minimas": 100,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria Mecanica",
+            "horas_libres_minimas": 90,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria Industrial",
+            "horas_libres_minimas": 100,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria Civil",
+            "horas_libres_minimas": 90,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria Quimica",
+            "horas_libres_minimas": 100,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria Electrica",
+            "horas_libres_minimas": 90,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria de Telecomunicaciones",
+            "horas_libres_minimas": 100,
+            "semestre": 8
+        },
+        {
+            "carrera": "Ingenieria Ambiental",
+            "horas_libres_minimas": 90,
+            "semestre": 8
+        }
+    ]
+}

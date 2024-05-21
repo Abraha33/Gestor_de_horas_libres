@@ -1,5 +1,5 @@
 import json
-
+print('hola mundo')
 def crearInfo(*args):
     if(checkFile(args[0])==False):
         with open('data/'+args[0], "w") as write_file:
