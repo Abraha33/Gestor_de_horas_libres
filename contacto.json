@@ -6,44 +6,37 @@
             "perfil": "Estudiante",
             "personal_data": {
                 "0": {
-                    "nombre": "Jhon Alfred Mercury Lenon",
+                    "nombre": "jeus",
                     "email": "jesus@gmail.com",
                     "codigo": 15615,
                     "telefono": 3148729188,
-                    "carrera": "Ingenieria en Sistemas",
-                    "horas_libres_minimas": 90
+                    "carrera": "Ingenieria en Computacion",
+                    "horas libres minimas": 90
                 }
             },
             "rendimiento": {
                 "0": {
-                    "Horas_libres": 352,
+                    "Horas libres registradas": 0,
                     "Faltantes": 8,
-                    "Promedio_Mensual": 2,
-                    "Promedio_Semestral": 11,
-                    "Promedio_Anual": 22
+                    "Promedio Mensual": 2,
+                    "Promedio Semestral": 11,
+                    "Promedio Anual": 22
                 }
             },
             "eventos_inscritos": {
                 "0": {
                     "1": {
-                        "id_evento": 456565,
-                        "nombre_evento": "waoooo",
-                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
-                        "fecha_fin": "viernes, 14 junio 2024 23:30",
+                        "id_evento": 8541654165,
+                        "nombre_evento": "compra d emuebles",
+                        "fecha_inicio": "lunes, 19 mayo 2025 19:35",
+                        "fecha_fin": "lunes, 19 mayo 2025 20:40",
                         "horas_libres": 4
                     },
                     "2": {
-                        "id_evento": 456565,
-                        "nombre_evento": "unhhh",
-                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
-                        "fecha_fin": "viernes, 14 junio 2024 23:30",
-                        "horas_libres": 4
-                    },
-                    "3": {
-                        "id_evento": 456565,
-                        "nombre_evento": "jejjeeje",
-                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
-                        "fecha_fin": "viernes, 14 junio 2024 23:30",
+                        "id_evento": 8541654165,
+                        "nombre_evento": "compra d emuebles",
+                        "fecha_inicio": "lunes, 19 mayo 2025 19:35",
+                        "fecha_fin": "lunes, 19 mayo 2025 20:40",
                         "horas_libres": 4
                     }
                 }
@@ -54,7 +47,7 @@
             "password": "judlup123",
             "perfil": "Profesor",
             "personal_data": {
-                "0": {
+                "1": {
                     "nombre": "judbootmp",
                     "email": "sdfhg@gmail.com",
                     "codigo": 15313,
@@ -73,16 +66,16 @@
                     "codigo": 15615,
                     "telefono": 3148729188,
                     "carrera": "Ingenieria en Computacion",
-                    "horas_libres_minimas": 90
+                    "horas libres minimas": 90
                 }
             },
             "rendimiento": {
                 "0": {
-                    "Horas_libres": 8,
+                    "Horas libres registradas": 0,
                     "Faltantes": 8,
-                    "Promedio_Mensual": 2,
-                    "Promedio_Semestral": 11,
-                    "Promedio_Anual": 22
+                    "Promedio Mensual": 2,
+                    "Promedio Semestral": 11,
+                    "Promedio Anual": 22
                 }
             },
             "eventos_inscritos": {

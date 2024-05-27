@@ -4,7 +4,7 @@ import core
 import os
 agenda=[]
 dircontacto={"data":[]}
-direvento={"data":[]}
+direvento={"data1":[]}
 isMenuActivate=True
 
 if __name__ == "__main__":
@@ -19,12 +19,13 @@ if __name__ == "__main__":
         print("****************************************")
         if(core.checkFile('contacto.json')):
             dircontacto=core.LoadInfo('contacto.json')
+            
         else:
             core.crearInfo('contacto.json',dircontacto)
         if (core.checkFile('Eventos.json')):
             direvento=core.LoadInfo('Eventos.json') 
         else:
-            core.crearInfo('Evento.json',direvento)
+            core.crearInfo2('Evento.json',direvento)
             #Login para entrar al Inicio
         isLogin=True
         while isLogin==True:
@@ -42,7 +43,10 @@ if __name__ == "__main__":
                 user_found = False
                 for user in data["user"]:
                     if user["username"] == username and user["password"] == password:
-                        print(f'¡Bienvenido {username}!')
+                        personal_data=user['personal_data']['0']
+                        nombre=personal_data['nombre']
+                        perfil=user['perfil']
+                        print(f'¡Bienvenido{perfil}: {nombre}!')
                         isAttemp=False
                         user_found=True
                         break
@@ -80,6 +84,8 @@ if __name__ == "__main__":
         isInitActivate=True
         while isInitActivate==True:
 
+            
+            
             print("****************************************") 
             print("*                Inicio                *")
             print("****************************************")
@@ -100,7 +106,7 @@ if __name__ == "__main__":
                 print("***************************************")
                 print("*                Perfil               *")
                 print("***************************************")
-                print("1.Actualizar datos\n2.Ver Perfil\n3.Eliminar")
+                print("1.Actualizar datos personales\n2.Ver Perfil\n3.Eliminar\n4.Actualizar horas libres")
                 option=int(input("Tu: "))
                 if option==1:
                     crud.BuscarData(dircontacto,username) #Actualizar datos
@@ -109,7 +115,9 @@ if __name__ == "__main__":
                 elif option==3:
                     crud.EliminarUsuario(dircontacto,username) #Eliminar usuario
                     dircontacto=core.LoadInfo('contacto.json')
-                    
+                elif option==4:
+                    #Se actualiza horas libres de usuario
+                    ce.AddHours(direvento,dircontacto,username)
                 else:
                     print('Vuelve a intentarlo')
                 rta = input("¿Deseas salir del Perfil? (S/N): ").upper()
@@ -121,26 +129,35 @@ if __name__ == "__main__":
                     isProfileActivate=True
                     
             while isEventActivate==True:
+                print("***************************************")
                 print("*                Eventos              *")
+                print("***************************************")
                 if user['perfil']=="Estudiante":
-                    print("1.Eventos disponibles\n2.Inscritos")
+                    print("1.Eventos disponibles\n2.Inscritos\n3.Darse de baja")
                     option=int(input("Tu: "))
                     if option==1:
-                        ce.register_events(dircontacto,username)
+                        ce.register_events(username)
                     elif option==2:
-                        print('h')
+                        crud.showRegisterEvent(dircontacto,username)
+                    elif option==3:
+                        crud.DarseBaja(direvento,dircontacto,username)
                     else:
-                        print('h')
+                        print('Vuelve a intentarlo')
                 
                 elif user['perfil']=="Profesor":
-                    print("1.Crear Evento\n2.Ver\n3.Actualizar\n4.Eliminar")
+                    print("1.Crear Evento\n2.Ver\n3.Autorizar\n4.Eliminar")
                     option=int(input("Tu: "))
                     if option==1:
                         ce.createEvent(username)
                     elif option==2:
-                        pass
+                        ce.SeeEvents(direvento,username)
+                    elif option==3:
+                        ce.CheckAsist(direvento,username)
+                    elif option==4:
+                        ce.DeleteEvent(direvento,username)
+                        direvento=core.LoadInfo('Eventos.json')
                     else:
-                        print('h')
+                        print('Vuelve a intentarlo')
                 rta = input("¿Deseas salir del Eventos? (S/N): ").upper()
                 if rta == "S":
                     isEventActivate = False
@@ -150,7 +167,9 @@ if __name__ == "__main__":
                     isEventActivate=True
  
             while isPrizeActivate==True:
-                print("*                Concurso               *")
+                print("***************************************")
+                print("*             Concurso                *")
+                print("***************************************")
                 if user['perfil']=="Estudiante":
                     print("1.Avance")
                     option=int(input("Tu: "))
@@ -159,16 +178,20 @@ if __name__ == "__main__":
                     elif option==2:
                         pass
                     else:
-                        pass
+                        print('Vuelve a intentarlo')
                 elif user['perfil']=="Profesor":
-                    print("1.Crear Nuevo Premio\n2.Ver\nActualizar\nEliminar")
+                    print("1.Crear Nuevo Premio\n2.Ver\n3.Actualizar\n4.Eliminar")
                     option=int(input("Tu: "))
                     if option==1:
                         pass
                     elif option==2:
                         pass
-                    else:
+                    elif option==3:
                         pass
+                    elif option==4:
+                        pass
+                    else:
+                        print('Vuelve a intentarlo')
                 rta = input("¿Deseas salir del Premios? (S/N): ").upper()
                 if rta == "S":
                     isPrizActivate = False

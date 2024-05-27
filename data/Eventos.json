@@ -1,26 +1,38 @@
 {
     "Evento": [
-    
         {
             "Id": 8541654165,
+            "Creado": "judluas",
             "Titulo": "compra d emuebles",
             "Desde": "lunes, 19 mayo 2025 19:35",
             "Hasta": "lunes, 19 mayo 2025 20:40",
             "lugar": "plza de mercado",
             "Descripcion": "buen camino",
             "Horas_libres": 4,
-            "Disponible": true
+            "Disponible": true,
+            "Inscritos": {
+                "0": {}
+            },
+            "Asistencia": {
+                "0": {}
+            }
         },
         {
             "Id": 456565,
-            "Creado": "gilberto",
+            "Creado": "judlup",
             "Titulo": "unhhh",
             "Desde": "viernes, 14 junio 2024 22:30",
             "Hasta": "viernes, 14 junio 2024 23:30",
             "lugar": "biblioteca UNAB",
             "Descripcion": "hasbdhsabhdasdj asdajs asjdnajs asjdnasj adjnas dfew wefs cscs cbsj",
             "Horas_libres": 4,
-            "Disponible": true
+            "Disponible": true,
+            "Inscritos": {
+                "0": {}
+            },
+            "Asistencia": {
+                "0": {}
+            }
         }
     ]
 }

@@ -22,19 +22,11 @@ def HorasCarrera():
     
     return carrera,horas_libres_minimas,semestre
 
-def HLR():
-   #contador
-   pass  
-
-
-        
-        
-
 def AddDataDicc():
     dicc = {}
     dicPersonalData = {}
     dicProgress={}
-    diccEventt={}
+    dicEvent={}
     os.system('cls')
     print("****************************************")
     print("*¡        Creando Usuario             !*")
@@ -57,8 +49,6 @@ def AddDataDicc():
             #Usuario Estudiante
             if ocupacion=="Estudiante":
                 valor=0
-                valor2=1
-                valor3=1
                 nombre = input("Nombre del usuario:    ")
                 email = input("Email del usuario:      ")
                 codigo = int(input("Código:                "))
@@ -70,16 +60,17 @@ def AddDataDicc():
                 PromedioA=round(PromedioS*2,None)
                 Faltantes=semestre-HLR
                 dicPersonalData.update({valor:{"nombre":nombre,"email":email,"codigo":codigo,"telefono":telefono,"carrera":carrera,"horas libres minimas":horas_libres_minimas}})
-                dicProgress.update({valor2:{"Horas libres registradas":HLR,"Faltantes":Faltantes,"Promedio Mensual":PromedioM,"Promedio Semestral":PromedioS,"Promedio Anual":PromedioA,}})
+                dicProgress.update({valor:{"Horas_libres":HLR,"Faltantes":Faltantes,"Promedio_Mensual":PromedioM,"Promedio_Semestral":PromedioS,"Promedio_Anual":PromedioA,}})
+                dicEvent.update({valor:{}})
                 dicc["personal_data"] = dicPersonalData
-                
+                dicc["eventos_incritos"]=dicEvent
                 contacto = {
                         "username": username,
                         "password": password,
                         "perfil":ocupacion,
                         "personal_data": dicPersonalData,
                         "rendimiento":dicProgress,
-                        "eventos inscritos":eventos
+                        "eventos_incritos":dicEvent        
                 }
                 #Usuario Profesor
             elif ocupacion=="Profesor":
@@ -95,8 +86,7 @@ def AddDataDicc():
                         "username": username,
                         "password": password,
                         "perfil":ocupacion,
-                        "personal_data": dicPersonalData,
-                        
+                        "personal_data": dicPersonalData,      
                 }
         
             cr.crearInfo("contacto.json", contacto)
@@ -123,12 +113,23 @@ def VerData(data,username):
             if user['perfil'] == "Estudiante":
                 personal_data = user['personal_data']['0']
                 print("-----------------------------------------------------------------------------------------------------")
-                print(f"                                             {user['perfil']}                                       ") 
+                print(f"                            {user['perfil']}:Datos personales                                       ") 
                 print("-----------------------------------------------------------------------------------------------------")
-                print(f"{'Item'.ljust(5)}|\t{'Nombre'.ljust(15)}|\t{'Email'.ljust(25)}|\t{'Código'.ljust(10)}|\t{'Teléfono'.ljust(15)}|\t{'Carrera'.ljust(20)}".expandtabs())
+                print(f"{'Item'.ljust(5)}|\t{'Nombre'.ljust(15)}|\t{'Email'.ljust(25)}|\t{'Código'.ljust(10)}|\t{'Teléfono'.ljust(15)}|\t{'Carrera'.ljust(20)}|\t{'Horas libres mínimas'.ljust(15)}".expandtabs())
                 print("-----------------------------------------------------------------------------------------------------")
-                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{personal_data['email'].ljust(25)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['carrera'].ljust(15)}|\t{personal_data['horas libres minimas']}".expandtabs())        
-
+                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{personal_data['email'].ljust(25)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['carrera'].ljust(15)}|\t{str(personal_data['horas_libres_minimas']).ljust(15)}".expandtabs())        
+                rendimiento=user['rendimiento']['0']
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"                            {user['perfil']}:Rendimiento                                       ") 
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"{'Item'.ljust(5)}|\t{'Horas_libres'.ljust(15)}|\t{'Faltantes'.ljust(25)}|\t{'Promedio Mensual'.ljust(25)}|\t{'Promedio Semestral'.ljust(25)}|\t{'Promedio Anual'.ljust(25)}".expandtabs())
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"{str(1).ljust(5)}|\t{str(rendimiento['Horas_libres']).ljust(15)}|\t{str(rendimiento['Faltantes']).ljust(25)}|\t{str(rendimiento['Promedio_Mensual']).ljust(25)}|\t{str(rendimiento['Promedio_Semestral']).ljust(25)}|\t{str(rendimiento['Promedio_Anual']).ljust(25)}".expandtabs())        
+                
+                
+                
+                
+                
             elif user['perfil'] == "Profesor":
                 personal_data = user['personal_data']['0']
                 print("-----------------------------------------------------------------------------------------------------")
@@ -149,9 +150,9 @@ def BuscarData(data,username):
                 print("-----------------------------------------------------------------------------------------------------")
                 print(f"                                             {user['perfil']}                                       ") 
                 print("-----------------------------------------------------------------------------------------------------")
-                print(f"{'Item'.ljust(5)}|\t{'Nombre'.ljust(15)}|\t{'Email'.ljust(25)}|\t{'Código'.ljust(10)}|\t{'Teléfono'.ljust(15)}|\t{'Carrera'.ljust(20)}".expandtabs())
+                print(f"{'Item'.ljust(5)}|\t{'Nombre'.ljust(15)}|\t{'Email'.ljust(25)}|\t{'Código'.ljust(10)}|\t{'Teléfono'.ljust(15)}|\t{'Carrera'.ljust(20)}|\t{'Horas_libres_minimas'.ljust(20)}".expandtabs())
                 print("-----------------------------------------------------------------------------------------------------")
-                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{personal_data['email'].ljust(25)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['carrera'].ljust(15)}|\t{personal_data['horas libres minimas']}".expandtabs())        
+                print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{personal_data['email'].ljust(25)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['carrera'].ljust(15)}|\t{personal_data['horas_libres_minimas']}".expandtabs())        
 
             elif user['perfil'] == "Profesor":
                 personal_data = user['personal_data']['0']
@@ -165,27 +166,65 @@ def BuscarData(data,username):
     selected_user=data['user'][items-1]
     personal_data=selected_user['personal_data']['0']
     for key, valor in personal_data.items():
-        print(f'{key}:{valor}')
-        modif=input(f'Desea modificar {key} S o N: ')
-        if(modif.upper()=='S'):
-            personal_data [key]=input(f'Ingrese un nuevo {key} : ')
+        if key=="horas_libres_minimas":
+            break
+        else:
+            print(f'{key}:{valor}')
+            modif=input(f'Desea modificar {key} S o N: ')
+            if(modif.upper()=='S'):
+                if key=="carrera" :
+                    carrera,horas_libres_minimas,semestre=HorasCarrera()
+                    personal_data[key]=carrera
+                elif key=="horas_libres_minimas":
+                    personal_data[key]=horas_libres_minimas
+                else:
+                    personal_data [key]=input(f'Ingrese un nuevo {key} : ')   
+                
     cr.editarInfo('contacto.json',data)
     v=input('presione enter para continuar')
 
-def BorrarData(data):
+def DarseBaja(event_data, data,username):
     os.system('cls')
-    indice=1
-    print("-------------------------------------------")
-    print(f"{'Item'.ljust(5)}|\t{'nombre'.ljust(5)}|\t{'email'.ljust(5)}|\t{'codigo'.ljust(5)}|\t{'telefono'.ljust(5)}|\t{'carrera'}.ljust(5)".expandtabs())
-    print("-------------------------------------------")
-    for item in data ['data']:
-        print(f"{str(indice).ljust(5)}|\t{item['nombre'].ljust(30)}|\t{item['email'].ljust(20)})".expandtabs())
-        indice=indice+1
-    v=input("presione enter para continuar...")
-    items=int(input("escriba el numero de contacto a eliminar "))
-    cr.delInfo('contacto.json',data)
-    
-    
+    for i,user in enumerate(data['user']):
+        if user['username'] == username:
+            if "eventos_inscritos" in user and "0" in user['eventos_inscritos']:   
+                        eventos_inscritos = user['eventos_inscritos']['0']
+                        print("-----------------------------------------------------------------------------------------------------")
+                        print(f"                            {user['perfil']}:Eventos inscritos                                       ") 
+                        print("-----------------------------------------------------------------------------------------------------")
+                        print(f"{'Item'.ljust(5)}|\t{'Id'.ljust(15)}|\t{'nombre_evento'.ljust(25)}|\t{'Fecha Inicio'.ljust(10)}|\t{'Fecha Final'.ljust(15)}|\t{'Horas Libres'.ljust(20)}".expandtabs())
+                        print("-----------------------------------------------------------------------------------------------------")
+                        indice=1
+                        #Sacar evento_inscrito de contacto.json de usuario
+                        for key,evento in eventos_inscritos.items():   
+                            print(f"{str(indice).ljust(5)}|\t{str(evento['id_evento']).ljust(15)}|\t{evento['nombre_evento'].ljust(25)}|\t{str(evento['fecha_inicio']).ljust(10)}|\t{str(evento['fecha_fin']).ljust(15)}|\t{str(evento['horas_libres']).ljust(15)}".expandtabs())        
+                            indice=indice+1
+                            
+                        items=int(input("Escriba el numero al que desea darse de baja: "))
+                        selected_event=eventos_inscritos[str(items)]
+                        print(selected_event)
+                        print(selected_event)
+                        eventos_reducido={
+                            "id_evento":selected_event['id_evento'],
+                            "nombre_evento":selected_event['nombre_evento']
+                        }
+                        print(f'Usted eligio:  {eventos_reducido}')
+                        cr.delInfo('contacto.json',data,i)
+                        #Sacar usuario de lista de inscritos en Eventos.json
+                        for event in event_data['Evento']:
+                            inscritos=event_data["Inscritos"]["0"]
+                            if eventos_reducido['id_evento']==event['Id']:
+                                if "Inscritos" in evento and "0" in inscritos:
+                                    for key, value in inscritos.items():
+                                        if value.get('nombre')==username:
+                                            inscritos.pop(key)
+                                        
+                                            
+                                    
+            else:
+                print("No hay eventos inscritos")
+                break
+            
     
 def EliminarUsuario(data,username):
     os.system('cls')
@@ -209,10 +248,26 @@ def EliminarUsuario(data,username):
                 print("-----------------------------------------------------------------------------------------------------")
                 print(f"{str(1).ljust(5)}|\t{personal_data['nombre'].ljust(15)}|\t{str(personal_data['codigo']).ljust(10)}|\t{str(personal_data['telefono']).ljust(15)}|\t{personal_data['facultad'].ljust(20)}|\t{personal_data['email'].ljust(25)}".expandtabs())
     
-    
-            cr.delInfo('contacto.json',data,i) #Elimina usuario en posición determinada
-    v=input("presione enter para continuar...")
-                       
 
+            cr.delInfo('contacto.json',data,i) #Elimina usuario en posición determinada
+                       
+def showRegisterEvent(data,username):
+     for user in data['user']:
+        if user['username']==username: 
+            if "eventos_inscritos" in user and "0" in user['eventos_inscritos']:   
+                eventos_inscritos = user['eventos_inscritos']['0']
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"                            {user['perfil']}:Eventos inscritos                                       ") 
+                print("-----------------------------------------------------------------------------------------------------")
+                print(f"{'Item'.ljust(5)}|\t{'Id'.ljust(15)}|\t{'nombre_evento'.ljust(25)}|\t{'Fecha Inicio'.ljust(10)}|\t{'Fecha Final'.ljust(15)}|\t{'Horas Libres'.ljust(20)}".expandtabs())
+                print("-----------------------------------------------------------------------------------------------------")
+                indice=1
+                for key,evento in eventos_inscritos.items():   
+                    print(f"{str(1).ljust(5)}|\t{str(evento['id_evento']).ljust(15)}|\t{evento['nombre_evento'].ljust(25)}|\t{str(evento['fecha_inicio']).ljust(10)}|\t{str(evento['fecha_fin']).ljust(15)}|\t{str(evento['horas_libres']).ljust(15)}".expandtabs())        
+                    indice=indice+1
+            else:
+                print("No hay eventos inscritos")
+                break
+                
         
         

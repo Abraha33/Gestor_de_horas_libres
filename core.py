@@ -16,6 +16,12 @@ def crearInfo(*args):
             json.dump(file_data, file, indent = 4)
             print('creado con exito¡')
             file.close()
+            
+def crearInfo3(filename, data):
+    with open('data/' + filename, 'w') as file:
+        json.dump(data, file, indent=4)
+        
+        
 def crearInfo2(*args):
     if(checkFile(args[0])==False):
         with open('data/'+args[0], "w") as write_file:
@@ -52,7 +58,34 @@ def delInfo(file_name,data,index):
     else:
         print("La opción es inválida. No se realizó ninguna tarea.")
     input("Presione Enter para continuar...")
-        
+
+def delInfo(file_name,data,index):
+    rta = input("¿Seguro que desea eliminar el dato? (S/N): ").upper()
+    if rta == "S":
+        del data['user'][index]
+        with open("data/" + file_name, 'w') as file:
+            json.dump(data, file, indent=4)
+            file.close()
+        print("El dato fue eliminado correctamente")
+    elif rta == "N":
+        print("Acción cancelada por el usuario")
+    else:
+        print("La opción es inválida. No se realizó ninguna tarea.")
+    input("Presione Enter para continuar...")
+    
+def delInfo2(file_name,data,index):
+    rta = input("¿Seguro que desea eliminar el dato? (S/N): ").upper()
+    if rta == "S":
+        del data['Evento'][index]
+        with open("data/" + file_name, 'w') as file:
+            json.dump(data, file, indent=4)
+            file.close()
+        print("El dato fue eliminado correctamente")
+    elif rta == "N":
+        print("Acción cancelada por el usuario")
+    else:
+        print("La opción es inválida. No se realizó ninguna tarea.")
+    input("Presione Enter para continuar...")        
 
 def LoadInfo(fileName):
         with open('data/'+fileName, "r") as read_file:
