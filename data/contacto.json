@@ -1,16 +1,16 @@
 {
     "user": [
         {
-            "username": "123",
+            "username": "Prueba1",
             "password": "123",
             "perfil": "Estudiante",
             "personal_data": {
                 "0": {
-                    "nombre": "michael",
-                    "email": "jesus@gmail.com",
-                    "codigo": 15615,
-                    "telefono": 3148729188,
-                    "carrera": "Ingenieria en Sistemas",
+                    "nombre": "JESUS MARCOS ANTONIO",
+                    "email": "marcos@gmail.com",
+                    "codigo": 123123,
+                    "telefono": 345699327,
+                    "carrera": "Ingenieria Mecanica",
                     "horas_libres_minimas": 90
                 }
             },
@@ -23,91 +23,21 @@
                     "Promedio_Anual": 22
                 }
             },
-            "eventos_inscritos": {
-                "0": {
-                    "1": {
-                        "id_evento": 456565,
-                        "nombre_evento": "waoooo",
-                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
-                        "fecha_fin": "viernes, 14 junio 2024 23:30",
-                        "horas_libres": 4
-                    },
-                    "2": {
-                        "id_evento": 456565,
-                        "nombre_evento": "unhhh",
-                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
-                        "fecha_fin": "viernes, 14 junio 2024 23:30",
-                        "horas_libres": 4
-                    },
-                    "3": {
-                        "id_evento": 456565,
-                        "nombre_evento": "jejjeeje",
-                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
-                        "fecha_fin": "viernes, 14 junio 2024 23:30",
-                        "horas_libres": 4
-                    },
-                    "4": {
-                        "id_evento": 456565,
-                        "nombre_evento": "unhhh",
-                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
-                        "fecha_fin": "viernes, 14 junio 2024 23:30",
-                        "horas_libres": 4
-                    },
-                    "5": {
-                        "id_evento": 456565,
-                        "nombre_evento": "unhhh",
-                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
-                        "fecha_fin": "viernes, 14 junio 2024 23:30",
-                        "horas_libres": 4
-                    },
-                    "6": {
-                        "id_evento": 8541654165,
-                        "nombre_evento": "compra d emuebles",
-                        "fecha_inicio": "lunes, 19 mayo 2025 19:35",
-                        "fecha_fin": "lunes, 19 mayo 2025 20:40",
-                        "horas_libres": 4
-                    }
-                }
+            "eventos_incritos": {
+                "0": {}
             }
         },
         {
-            "username": "judlup",
-            "password": "judlup123",
+            "username": "Prueba2",
+            "password": "124",
             "perfil": "Profesor",
             "personal_data": {
                 "0": {
-                    "nombre": "judbootmp",
-                    "email": "dfhdfhdf",
-                    "codigo": 15313,
-                    "carrera": "Ingenieria Ambiental"
+                    "nombre": "jesus andre calcedo",
+                    "email": "crar@gmail.com",
+                    "codigo": 21321,
+                    "carrera": "Ingenieria Industrial"
                 }
-            }
-        },
-        {
-            "username": "124",
-            "password": "123",
-            "perfil": "Estudiante",
-            "personal_data": {
-                "0": {
-                    "nombre": "jeus",
-                    "email": "jesus@gmail.com",
-                    "codigo": 15615,
-                    "telefono": 3148729188,
-                    "carrera": "Ingenieria en Computacion",
-                    "horas_libres_minimas": 90
-                }
-            },
-            "rendimiento": {
-                "0": {
-                    "Horas_libres": 8,
-                    "Faltantes": 8,
-                    "Promedio_Mensual": 2,
-                    "Promedio_Semestral": 11,
-                    "Promedio_Anual": 22
-                }
-            },
-            "eventos_inscritos": {
-                "0": {}
             }
         }
     ]

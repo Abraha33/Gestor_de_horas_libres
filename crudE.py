@@ -45,7 +45,7 @@ def createEvent(username):
                 "Hasta": date_time4.strftime("%A, %d %B %Y %H:%M"),
                 "lugar": place,
                 "Descripcion": content,
-                "Horas libres": valid_for,
+                "Horas_libres": valid_for,
                 "Disponible": available,
                 "Inscritos":dicInsc,
                 "Asistencia":dicAsis
@@ -214,7 +214,7 @@ def SeeEvents(data,username):
     for user in data['Evento']:
         if user['Creado']==username:
             print("-----------------------------------------------------------------------------------------------------")
-            print(f"                            {user['perfil']}:Eventos inscritos                                       ") 
+            print(f"                            Eventos inscritos                                       ") 
             print("-----------------------------------------------------------------------------------------------------")
             print(f"{'Item'.ljust(5)}|\t{'Id'.ljust(15)}|\t{'nombre_evento'.ljust(25)}|\t{'Fecha Inicio'.ljust(10)}|\t{'Fecha Final'.ljust(15)}|\t{'Horas Libres'.ljust(20)}".expandtabs())
             print("-----------------------------------------------------------------------------------------------------")
@@ -223,35 +223,39 @@ def SeeEvents(data,username):
             print("No hay eventos inscritos con este usuario")
             break
 
-def DeleteEvent(data,username):
-    #Usuario solo puede eliminar eventos creados por él mismo
-    for i, event in enumerate(data['Evento']):
-        if event['Creado']==username:
-            print("-----------------------------------------------------------------------------------------------------")
-            print(f"                            {username}:Eventos inscritos                                       ") 
-            print("-----------------------------------------------------------------------------------------------------")
-            print(f"{'Item'.ljust(5)}|\t{'Id'.ljust(15)}|\t{'Titulo'.ljust(25)}|\t{'Fecha Inicio'.ljust(10)}|\t{'Fecha Final'.ljust(15)}|\t{'Lugar'.ljust(20)}|\t{'Horas_libres'.ljust(15)}".expandtabs())
-            print("-----------------------------------------------------------------------------------------------------")
-            indice=1
-            for item in event['Creado']:
-                print(f"{str(indice).ljust(5)}|\t{str(item['Id']).ljust(15)}|\t{item['Titulo'].ljust(25)}|\t{item['Desde'].ljust(10)}|\t{item['Hasta'].ljust(15)}|\t{item['lugar'].ljust(15)}|\t{str(item['Horas_libres']).ljust(15)}".expandtabs())        
-                indice=indice+1
-            items=int(input("Ingrese el numero de evento a eliminar:"))
-            selected_event=data['Evento'][items-1]
-            evento_reducido={
-                "Id":selected_event['Id'],
-                "Titulo":selected_event["Titulo"],
-                "Fecha":selected_event["Desde"]
-            }
-            print(f'Usted eligio el evento: {evento_reducido}')
-            cr.delInfo2('Eventos.json',data,i)
-            break
-        else:
-            print("No hay eventos inscritos con este usuario")
-            break
-        
+def DeleteEvent(data, username):
+    # Cargar los eventos
+    eventos = data['Evento']
+    eventos_creados = [evento for evento in eventos if evento['Creado'] == username]
+    
+    if not eventos_creados:
+        print("No hay eventos inscritos con este usuario")
+        return
 
+    print("-----------------------------------------------------------------------------------------------------")
+    print(f"                            {username}: Eventos inscritos                                            ") 
+    print("-----------------------------------------------------------------------------------------------------")
+    print(f"{'Item'.ljust(5)}|\t{'Id'.ljust(15)}|\t{'Titulo'.ljust(25)}|\t{'Fecha Inicio'.ljust(10)}|\t{'Fecha Final'.ljust(15)}|\t{'Lugar'.ljust(20)}|\t{'Horas_libres'.ljust(15)}".expandtabs())
+    print("-----------------------------------------------------------------------------------------------------")
     
+    for indice, evento in enumerate(eventos_creados, start=1):
+        print(f"{str(indice).ljust(5)}|\t{str(evento['Id']).ljust(15)}|\t{evento['Titulo'].ljust(25)}|\t{evento['Desde'].ljust(10)}|\t{evento['Hasta'].ljust(15)}|\t{evento['lugar'].ljust(20)}|\t{str(evento['Horas_libres']).ljust(15)}".expandtabs())
     
-    
-    
+    try:
+        items = int(input("Ingrese el número de evento a eliminar:"))
+        selected_event = eventos_creados[items - 1]
+        evento_reducido = {
+            "Id": selected_event['Id'],
+            "Titulo": selected_event["Titulo"],
+            "Fecha": selected_event["Desde"]
+        }
+        print(f'Usted eligió el evento: {evento_reducido}')
+        
+        # Eliminar el evento del listado original
+        for i, evento in enumerate(eventos):
+            if evento['Id'] == selected_event['Id']:
+                cr.delInfo2('Eventos.json', data, i)
+                break
+        
+    except (IndexError, ValueError):
+        print("Selección inválida. Asegúrese de ingresar un número de evento válido.")

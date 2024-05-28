@@ -86,17 +86,14 @@ if __name__ == "__main__":
             print("****************************************") 
             print("*                Inicio                *")
             print("****************************************")
-            print("1.Perfil\n2.Eventos\n3.Premios")
+            print("1.Perfil\n2.Eventos")
             option=int(input("Tu: "))
             isProfileActivate=False
             isEventActivate=False
-            isPrizeActivate=False
             if option==1:
                 isProfileActivate=True
             elif option==2:
                 isEventActivate=True
-            else:
-                isPrizeActivate=True
                 
                     
             while isProfileActivate==True:
@@ -174,40 +171,6 @@ if __name__ == "__main__":
                     break
                 elif rta=="N":
                     isEventActivate=True
- 
-            while isPrizeActivate==True:
-                print("***************************************")
-                print("*             Concurso                *")
-                print("***************************************")
-                if user['perfil']=="Estudiante":
-                    print("1.Avance")
-                    option=int(input("Tu: "))
-                    if option==1:
-                        pass
-                    elif option==2:
-                        pass
-                    else:
-                        print('Vuelve a intentarlo')
-                elif user['perfil']=="Profesor":
-                    print("1.Crear Nuevo Premio\n2.Ver\n3.Actualizar\n4.Eliminar")
-                    option=int(input("Tu: "))
-                    if option==1:
-                        pass
-                    elif option==2:
-                        pass
-                    elif option==3:
-                        pass
-                    elif option==4:
-                        pass
-                    else:
-                        print('Vuelve a intentarlo')
-                rta = input("¿Deseas salir del Premios? (S/N): ").upper()
-                if rta == "S":
-                    isPrizActivate = False
-                    print("¡Hasta luego!")
-                    break
-                elif rta=="N":
-                        isPrizeActivate=True
             rta = input("¿Deseas salir del Inicio? (S/N): ").upper()
             if rta == "S":
                 isInitActivate=False

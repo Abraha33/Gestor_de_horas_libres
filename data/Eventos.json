@@ -1,76 +1,32 @@
 {
     "Evento": [
         {
-            "Id": 8541654165,
-            "Creado": "judluas",
-            "Titulo": "compra d emuebles",
-            "Desde": "lunes, 19 mayo 2025 19:35",
-            "Hasta": "lunes, 19 mayo 2025 20:40",
-            "lugar": "plza de mercado",
-            "Descripcion": "buen camino",
+            "Id": 2647234,
+            "Creado": "Prueba1",
+            "Titulo": "Evento1",
+            "Desde": "martes, 28 mayo 2024 12:40",
+            "Hasta": "martes, 28 mayo 2024 13:50",
+            "lugar": "wedsfsd",
+            "Descripcion": "12erffe",
             "Horas_libres": 4,
             "Disponible": true,
             "Inscritos": {
-                "0": {
-                    "1": {
-                        "codigo": 15615,
-                        "nombre": "michael"
-                    }
-                }
+                "0": {}
             },
             "Asistencia": {
                 "0": {}
             }
         },
         {
-            "Id": 456565,
-            "Creado": "judlup",
-            "Titulo": "unhhh",
-            "Desde": "viernes, 14 junio 2024 22:30",
-            "Hasta": "viernes, 14 junio 2024 23:30",
-            "lugar": "biblioteca UNAB",
-            "Descripcion": "hasbdhsabhdasdj asdajs asjdnajs asjdnasj adjnas dfew wefs cscs cbsj",
+            "Id": 2634,
+            "Creado": "Prueba2",
+            "Titulo": "Evento2",
+            "Desde": "martes, 28 mayo 2024 12:40",
+            "Hasta": "martes, 28 mayo 2024 13:50",
+            "lugar": "wedsfsd",
+            "Descripcion": "12erffe",
             "Horas_libres": 4,
             "Disponible": true,
-            "Inscritos": {
-                "0": {
-                    "1": {
-                        "codigo": 15615,
-                        "nombre": "michael",
-                        "asistio": true
-                    },
-                    "2": {
-                        "codigo": 15615,
-                        "nombre": "michael",
-                        "asistio": true
-                    }
-                }
-            },
-            "Asistencia": {
-                "0": {
-                    "1": {
-                        "codigo": 15615,
-                        "nombre": "michael",
-                        "asistio": true
-                    },
-                    "2": {
-                        "codigo": 15615,
-                        "nombre": "michael",
-                        "asistio": true
-                    }
-                }
-            }
-        },
-        {
-            "Id": 4646515156,
-            "Creado": "judlup",
-            "Titulo": "Compartir de Eucombidar",
-            "Desde": "martes, 28 mayo 2024 12:30",
-            "Hasta": "martes, 28 mayo 2024 13:30",
-            "lugar": "biblioteca",
-            "Descripcion": "ashjajsnfjas",
-            "Horas libres": 12,
-            "Disponible": false,
             "Inscritos": {
                 "0": {}
             },
