@@ -83,9 +83,6 @@ if __name__ == "__main__":
         #Inicio de usuario 
         isInitActivate=True
         while isInitActivate==True:
-
-            
-            
             print("****************************************") 
             print("*                Inicio                *")
             print("****************************************")
@@ -106,20 +103,32 @@ if __name__ == "__main__":
                 print("***************************************")
                 print("*                Perfil               *")
                 print("***************************************")
-                print("1.Actualizar datos personales\n2.Ver Perfil\n3.Eliminar\n4.Actualizar horas libres")
-                option=int(input("Tu: "))
-                if option==1:
-                    crud.BuscarData(dircontacto,username) #Actualizar datos
-                elif option==2:
-                    crud.VerData(dircontacto,username) #Ver perfil
-                elif option==3:
-                    crud.EliminarUsuario(dircontacto,username) #Eliminar usuario
-                    dircontacto=core.LoadInfo('contacto.json')
-                elif option==4:
-                    #Se actualiza horas libres de usuario
-                    ce.AddHours(direvento,dircontacto,username)
-                else:
-                    print('Vuelve a intentarlo')
+                if user['perfil']=="Estudiante":    
+                    print("1.Actualizar datos personales\n2.Ver Perfil\n3.Eliminar\n4.Actualizar horas libres")
+                    option=int(input("Tu: "))
+                    if option==1:
+                        crud.BuscarData(dircontacto,username) #Actualizar datos
+                    elif option==2:
+                        crud.VerData(dircontacto,username) #Ver perfil
+                    elif option==3:
+                        crud.EliminarUsuario(dircontacto,username) #Eliminar usuario
+                        dircontacto=core.LoadInfo('contacto.json')
+                    elif option==4:
+                        ce.AddHours(direvento,dircontacto,username)
+                    else:
+                        print('Vuelve a intentarlo')
+                elif user['perfil']=="Profesor":
+                    print("1.Actualizar datos personales\n2.Ver Perfil\n3.Eliminar")
+                    option=int(input("Tu: "))
+                    if option==1:
+                        crud.BuscarData(dircontacto,username) #Actualizar datos
+                    elif option==2:
+                        crud.VerData(dircontacto,username) #Ver perfil
+                    elif option==3:
+                        crud.EliminarUsuario(dircontacto,username) #Eliminar usuario
+                        dircontacto=core.LoadInfo('contacto.json')
+                    else:
+                        print('Vuelve a intentarlo')
                 rta = input("¿Deseas salir del Perfil? (S/N): ").upper()
                 if rta == "S":
                     isProfileActivate = False

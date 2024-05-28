@@ -176,7 +176,7 @@ def CheckAsist(data, username):
         print("-----------------------------------------------------------------------------------------------------")
         for key, valor in asistencia.items():
             print(f"{key}:{valor}")
-            modif=input(f'El estudiante {key} asistió al evento? S/N:')
+            modif=input(f'El estudiante {valor} asistió al evento? S/N:')
             if modif.upper() == "S":
                 asistencia[key] = {"codigo": valor["codigo"], "nombre": valor["nombre"], "asistio": True}
             elif modif.upper() == "N":
@@ -184,6 +184,7 @@ def CheckAsist(data, username):
 
         selected_event["Asistencia"]["0"] = asistencia
         cr.editarInfo("Eventos.json",data)
+        print("Actualizado con exito")
     else:
         print("No hay inscritos en este evento.")
 
@@ -206,6 +207,8 @@ def AddHours(event_data,data,username):
     total_horas=sum(int(evento['Horas_libres']) for evento in eventos_asistidos)
     rendimiento['Horas_libres']=Horas_libres+total_horas
     cr.editarInfo("contacto.json",data)
+    cr.editarInfo("Eventos.json",event_data)
+    print("Se agregado con exito")
     
 def SeeEvents(data,username):
     for user in data['Evento']:

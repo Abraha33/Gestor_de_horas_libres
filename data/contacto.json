@@ -6,7 +6,7 @@
             "perfil": "Estudiante",
             "personal_data": {
                 "0": {
-                    "nombre": "Jhon Alfred Mercury Lenon",
+                    "nombre": "michael",
                     "email": "jesus@gmail.com",
                     "codigo": 15615,
                     "telefono": 3148729188,
@@ -16,7 +16,7 @@
             },
             "rendimiento": {
                 "0": {
-                    "Horas_libres": 352,
+                    "Horas_libres": 0,
                     "Faltantes": 8,
                     "Promedio_Mensual": 2,
                     "Promedio_Semestral": 11,
@@ -45,6 +45,27 @@
                         "fecha_inicio": "viernes, 14 junio 2024 22:30",
                         "fecha_fin": "viernes, 14 junio 2024 23:30",
                         "horas_libres": 4
+                    },
+                    "4": {
+                        "id_evento": 456565,
+                        "nombre_evento": "unhhh",
+                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
+                        "fecha_fin": "viernes, 14 junio 2024 23:30",
+                        "horas_libres": 4
+                    },
+                    "5": {
+                        "id_evento": 456565,
+                        "nombre_evento": "unhhh",
+                        "fecha_inicio": "viernes, 14 junio 2024 22:30",
+                        "fecha_fin": "viernes, 14 junio 2024 23:30",
+                        "horas_libres": 4
+                    },
+                    "6": {
+                        "id_evento": 8541654165,
+                        "nombre_evento": "compra d emuebles",
+                        "fecha_inicio": "lunes, 19 mayo 2025 19:35",
+                        "fecha_fin": "lunes, 19 mayo 2025 20:40",
+                        "horas_libres": 4
                     }
                 }
             }
@@ -56,9 +77,9 @@
             "personal_data": {
                 "0": {
                     "nombre": "judbootmp",
-                    "email": "sdfhg@gmail.com",
+                    "email": "dfhdfhdf",
                     "codigo": 15313,
-                    "carrera": "Ingenieria Electrica"
+                    "carrera": "Ingenieria Ambiental"
                 }
             }
         },
